@@ -1,0 +1,35 @@
+.book {
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    margin: 15px 0;
+    transition: border, background 0.5s;
+    cursor: pointer;
+}
+
+.book:hover {
+    border: 1px solid red;
+    background: #ffd4d4;
+}
+
+.book .title {
+    font-size: 26px;
+    font-weight: bold;
+}
+.book .author {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.book .price {
+    display: inline-block;
+    font-size: 16px;
+}
+
+.book .isbn {
+    display: inline-block;
+    margin-left: 50px;
+    font-size: 16px;
+}
