@@ -1,46 +1,48 @@
 package pl.camp.it.book.store.validators;
 
+import pl.camp.it.book.store.exceptions.ValidationException;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Validator {
-    public static boolean validateLogin(String login) {
-        return login.length() >= 3;
-    }
-
-    public static boolean validatePassword(String password) {
-        return password.length() >= 3;
-    }
-
-    public static boolean validateName(String name) {
-        return basicValidation(name);
-    }
-
-    public static boolean validateSurname(String surname) {
-        return basicValidation(surname);
-    }
-
-    public static boolean validateMail(String mail) {
-        if(mail.charAt(0) == '@') {
-            return false;
+    public static void validateLogin(String login) {
+        if(!login.matches(".{3}.*")) {
+            throw new ValidationException("Login is too short");
         }
-
-        if(mail.charAt(mail.length() - 1) == '@') {
-            return false;
-        }
-
-        return mail.contains("@");
     }
 
-    private static boolean basicValidation(String value) {
-        if(value.length() < 3 || !Character.isUpperCase(value.charAt(0))) {
-            return false;
+    public static void validatePassword(String password) {
+        if(!password.matches(".{3}.*")) {
+            throw new ValidationException("Password is to short");
         }
+    }
 
-        char[] temp = value.toCharArray();
-        for(int i = 1; i < temp.length; i++) {
-            if(Character.isUpperCase(temp[i]) || Character.isDigit(temp[i])) {
-                return false;
-            }
+    public static void validateName(String name) {
+        basicValidation(name);
+    }
+
+    public static void validateSurname(String surname) {
+        basicValidation(surname);
+    }
+
+    public static void validateMail(String mail) {
+        Pattern pattern = Pattern.compile(".+@.+\\.[a-z]{2,3}");
+        Matcher matcher = pattern.matcher(mail);
+        if(!matcher.matches()) {
+            throw new ValidationException("Incorrect mail");
         }
+    }
 
-        return true;
+    public static void validatePasswordsEquality(String pass1, String pass2) {
+        if(!pass1.equals(pass2)) {
+            throw new ValidationException("passwords are not equal");
+        }
+    }
+
+    private static void basicValidation(String value) {
+        if(!value.matches("[A-Z]{1}[a-z]+")) {
+            throw new ValidationException("value incorrect");
+        }
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.camp.it.book.store.exceptions.ValidationException;
 import pl.camp.it.book.store.model.view.RegisterUser;
 import pl.camp.it.book.store.services.AuthenticationService;
 import pl.camp.it.book.store.session.SessionObject;
@@ -31,10 +32,14 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String login, @RequestParam String password) {
-        if(!Validator.validateLogin(login) || !Validator.validatePassword(password)) {
+        try {
+            Validator.validateLogin(login);
+            Validator.validatePassword(password);
+        } catch (ValidationException e) {
             System.out.println("Walidacja nieudana !!");
             return "redirect:/login";
         }
+
         this.authenticationService.authenticate(login, password);
         if(this.sessionObject.isLogged()) {
             return "redirect:/main";
@@ -58,14 +63,17 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@ModelAttribute RegisterUser registerUser) {
-        if(!Validator.validateLogin(registerUser.getLogin()) ||
-                !Validator.validatePassword(registerUser.getPassword()) ||
-                !registerUser.getPassword().equals(registerUser.getPassword2()) ||
-                !Validator.validateName(registerUser.getName()) ||
-                !Validator.validateSurname(registerUser.getSurname()) ||
-                !Validator.validateMail(registerUser.getMail())) {
+        try {
+            Validator.validateLogin(registerUser.getLogin());
+            Validator.validatePassword(registerUser.getPassword());
+            Validator.validatePasswordsEquality(registerUser.getPassword(), registerUser.getPassword2());
+            Validator.validateName(registerUser.getName());
+            Validator.validateSurname(registerUser.getSurname());
+            Validator.validateMail(registerUser.getMail());
+        } catch (ValidationException e) {
             return "redirect:/register";
         }
+
         if(this.authenticationService.register(registerUser)) {
             return "redirect:/login";
         } else {

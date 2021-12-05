@@ -16,30 +16,44 @@ public class BookDatabase {
                         "poleceń prowadzić działania zaczepne i obronne",
                         "Paul Troncone, Carl Albing Ph. D.",
                         55.20,
-                        "978-83-283-8196-4"));
+                        "978-83-283-8196-4",
+                        15));
 
         this.books.add(
                 new Book("Python. Automatyzacja zadań. Jak efektywnie pracować z " +
                         "danymi, arkuszami Excela, raportami i e-mailami. Wydanie II",
                         "Jaime Buelta",
                         71.20,
-                        "978-83-283-8322-7"));
+                        "978-83-283-8322-7",
+                        10));
 
         this.books.add(
                 new Book("Python 3. Projekty dla początkujących i pasjonatów",
                         "Adam Jurkiewicz",
                         29.95,
-                        "978-83-283-7455-3"));
+                        "978-83-283-7455-3",
+                        10));
 
         this.books.add(
                 new Book("Stwórz grę w Unity, a nauczysz się programowania w " +
                         "C#! Pisanie kodu, które sprawia radość. Wydanie V",
                         "Harrison Ferrone",
                         34.50,
-                        "978-83-283-8144-5"));
+                        "978-83-283-8144-5",
+                        10));
     }
 
     public List<Book> getBooks() {
         return books;
+    }
+
+    public Book getBookByIsbn(String isbn) {
+        for(Book book : this.books) {
+            if(book.getIsbn().equals(isbn)) {
+                return book;
+            }
+        }
+
+        return null;
     }
 }
