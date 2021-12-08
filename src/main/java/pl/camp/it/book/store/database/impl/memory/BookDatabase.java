@@ -1,13 +1,15 @@
-package pl.camp.it.book.store.database;
+package pl.camp.it.book.store.database.impl.memory;
 
 import org.springframework.stereotype.Repository;
+import pl.camp.it.book.store.database.IBookDAO;
 import pl.camp.it.book.store.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class BookDatabase {
+public class BookDatabase implements IBookDAO {
     private final List<Book> books = new ArrayList<>();
 
     public BookDatabase() {
@@ -43,17 +45,18 @@ public class BookDatabase {
                         10));
     }
 
+    @Override
     public List<Book> getBooks() {
         return books;
     }
 
-    public Book getBookByIsbn(String isbn) {
+    @Override
+    public Optional<Book> getBookByIsbn(String isbn) {
         for(Book book : this.books) {
             if(book.getIsbn().equals(isbn)) {
-                return book;
+                return Optional.of(book);
             }
         }
-
-        return null;
+        return Optional.empty();
     }
 }

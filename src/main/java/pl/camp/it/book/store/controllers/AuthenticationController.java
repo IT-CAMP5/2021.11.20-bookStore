@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.camp.it.book.store.exceptions.ValidationException;
 import pl.camp.it.book.store.model.view.RegisterUser;
-import pl.camp.it.book.store.services.AuthenticationService;
+import pl.camp.it.book.store.services.IAuthenticationService;
 import pl.camp.it.book.store.session.SessionObject;
 import pl.camp.it.book.store.validators.Validator;
 
@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 public class AuthenticationController {
 
     @Autowired
-    AuthenticationService authenticationService;
+    IAuthenticationService authenticationService;
 
     @Resource
     SessionObject sessionObject;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BookStore</title>
+    <link rel="stylesheet" href="/commons.css"/>
+    <link rel="stylesheet" href="/orders.css"/>
+    <link rel="stylesheet" href="/cart.css"/>
+</head>
+<body>
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+<div id="content">
+    <div th:if="${orders.isEmpty()}">Brak zamówień</div>
+    <div class="order" th:if="${!orders.isEmpty()}">
+        <div class="id">ID</div>
+        <div class="status">Status</div>
+        <div class="sum">Kwota</div>
+    </div>
+    <div th:each="order : ${orders}" class="order">
+        <div th:text="${order.id}" class="id"></div>
+        <div th:text="${order.status}" class="status"></div>
+        <div th:text="${order.calculateSum()}" class="sum"></div>
+        <div class="positions">
+            <div class="position">
+                <div class="title">Tytuł</div>
+                <div class="author">Autor</div>
+                <div class="quantity">Ilość</div>
+                <div class="price">Cena j.</div>
+                <div class="position-sum">Cena</div>
+            </div>
+            <div th:each="position : ${order.orderPositions}" class="position">
+                <div th:text="${position.book.title}" class="title"></div>
+                <div th:text="${position.book.author}" class="author"></div>
+                <div th:text="${position.positionQuantity}" class="quantity"></div>
+                <div th:text="${position.book.price}" class="price"></div>
+                <div th:text="${position.positionQuantity * position.book.price}" class="position-sum"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

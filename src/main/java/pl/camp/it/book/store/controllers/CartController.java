@@ -6,21 +6,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.camp.it.book.store.services.CartService;
+import pl.camp.it.book.store.services.ICartService;
+import pl.camp.it.book.store.services.impl.CartService;
 import pl.camp.it.book.store.session.SessionObject;
 
 import javax.annotation.Resource;
 
 @Controller
+@RequestMapping(value = "/cart")
 public class CartController {
 
     @Autowired
-    CartService cartService;
+    ICartService cartService;
 
     @Resource
     SessionObject sessionObject;
 
-    @RequestMapping(value = "/cart/add/{isbn}", method = RequestMethod.GET)
+    @RequestMapping(value = "/add/{isbn}", method = RequestMethod.GET)
     public String addToCart(@PathVariable String isbn) {
         if(!this.sessionObject.isLogged()) {
             return "redirect:/main";
@@ -29,7 +31,7 @@ public class CartController {
         return "redirect:/main";
     }
 
-    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String cart(Model model) {
         if(!this.sessionObject.isLogged()) {
             return "redirect:/main";

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import pl.camp.it.book.store.services.BookService;
+import pl.camp.it.book.store.services.IBookService;
 import pl.camp.it.book.store.session.SessionObject;
 
 import javax.annotation.Resource;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 public class CommonController {
 
     @Autowired
-    BookService bookService;
+    IBookService bookService;
 
     @Resource
     SessionObject sessionObject;

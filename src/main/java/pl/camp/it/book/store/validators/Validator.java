@@ -41,7 +41,7 @@ public class Validator {
     }
 
     private static void basicValidation(String value) {
-        if(!value.matches("[A-Z]{1}[a-z]+")) {
+        if(!value.matches("[A-Z][a-z]+")) {
             throw new ValidationException("value incorrect");
         }
     }

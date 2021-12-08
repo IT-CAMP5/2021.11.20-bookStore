@@ -1,14 +1,16 @@
-package pl.camp.it.book.store.database;
+package pl.camp.it.book.store.database.impl.memory;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Repository;
+import pl.camp.it.book.store.database.IUserDAO;
 import pl.camp.it.book.store.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class UserDatabase {
+public class UserDatabase implements IUserDAO {
     private final List<User> users = new ArrayList<>();
 
     public UserDatabase() {
@@ -26,20 +28,17 @@ public class UserDatabase {
                         "jmalinowski@gmail.com"));
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public User getUserByLogin(String login) {
+    @Override
+    public Optional<User> getUserByLogin(String login) {
         for(User user : this.users) {
             if(user.getLogin().equals(login)) {
-                return user;
+                return Optional.of(user);
             }
         }
-
-        return null;
+        return Optional.empty();
     }
 
+    @Override
     public void addUser(User user) {
         this.users.add(user);
     }
