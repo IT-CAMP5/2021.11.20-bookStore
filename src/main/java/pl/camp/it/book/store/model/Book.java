@@ -1,13 +1,15 @@
 package pl.camp.it.book.store.model;
 
 public class Book {
+    private int id;
     private String title;
     private String author;
     private double price;
     private String isbn;
     private int quantity;
 
-    public Book(String title, String author, double price, String isbn, int quantity) {
+    public Book(int id, String title, String author, double price, String isbn, int quantity) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.price = price;
@@ -16,6 +18,14 @@ public class Book {
     }
 
     public Book() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

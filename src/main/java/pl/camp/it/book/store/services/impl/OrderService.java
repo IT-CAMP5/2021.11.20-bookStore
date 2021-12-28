@@ -11,7 +11,6 @@ import pl.camp.it.book.store.session.SessionObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 import javax.annotation.Resource;
 
@@ -41,7 +40,7 @@ public class OrderService implements IOrderService {
             }
         }
         Order order = new Order();
-        order.setId(new Random().nextInt(1000000));
+        //order.setId(new Random().nextInt(1000000));
         order.setOrderPositions(orderPositions);
         order.setAddress(address);
         order.setUser(this.sessionObject.getUser());
@@ -51,6 +50,7 @@ public class OrderService implements IOrderService {
             Optional<Book> bookBox = this.bookDatabase.getBookByIsbn(orderPosition.getBook().getIsbn());
             Book book = bookBox.get();
             book.setQuantity(book.getQuantity() - orderPosition.getPositionQuantity());
+            this.bookDatabase.updateBook(book);
         }
         cart.setPositions(new ArrayList<>());
     }

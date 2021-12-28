@@ -1,13 +1,15 @@
 package pl.camp.it.book.store.model;
 
 public class User {
+    private int id;
     private String name;
     private String surname;
     private String login;
     private String password;
     private String mail;
 
-    public User(String name, String surname, String login, String password, String mail) {
+    public User(int id, String name, String surname, String login, String password, String mail) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.login = login;
@@ -16,6 +18,14 @@ public class User {
     }
 
     public User() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

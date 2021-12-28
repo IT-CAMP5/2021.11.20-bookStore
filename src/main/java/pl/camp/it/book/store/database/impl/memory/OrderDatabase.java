@@ -6,7 +6,6 @@ import pl.camp.it.book.store.model.Order;
 import java.util.List;
 import java.util.ArrayList;
 
-@Repository
 public class OrderDatabase implements IOrderDAO {
     private final List<Order> orders = new ArrayList<>();
 

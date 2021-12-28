@@ -9,18 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
 public class UserDatabase implements IUserDAO {
     private final List<User> users = new ArrayList<>();
 
     public UserDatabase() {
         this.users.add(new User(
+                        1,
                         "Karol",
                         "Kowalski",
                         "admin",
                         DigestUtils.md5Hex("admin"),
                         "kkowalski@gmail.com"));
         this.users.add(new User(
+                        2,
                         "Janusz",
                         "Malinowski",
                         "janusz",

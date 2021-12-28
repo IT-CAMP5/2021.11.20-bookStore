@@ -1,6 +1,7 @@
 package pl.camp.it.book.store.model;
 
 public class Address {
+    private int id;
     private String name;
     private String surname;
     private String address;
@@ -8,7 +9,8 @@ public class Address {
     private String city;
     private String phone;
 
-    public Address(String name, String surname, String address, String postalCode, String city, String phone) {
+    public Address(int id, String name, String surname, String address, String postalCode, String city, String phone) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -18,6 +20,14 @@ public class Address {
     }
 
     public Address() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

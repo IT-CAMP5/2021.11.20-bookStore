@@ -1,8 +1,17 @@
 package pl.camp.it.book.store.model;
 
 public class OrderPosition {
+    private int id;
     private Book book;
     private int positionQuantity;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Book getBook() {
         return book;
