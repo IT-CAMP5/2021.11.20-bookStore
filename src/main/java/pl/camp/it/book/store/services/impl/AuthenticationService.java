@@ -38,7 +38,14 @@ public class AuthenticationService implements IAuthenticationService {
     public boolean register(RegisterUser registerUser) {
         if(!this.userDatabase.getUserByLogin(registerUser.getLogin()).isPresent()) {
             registerUser.setPassword(DigestUtils.md5Hex(registerUser.getPassword()));
-            this.userDatabase.addUser(registerUser);
+            User user = new User();
+            user.setId(registerUser.getId());
+            user.setMail(registerUser.getMail());
+            user.setPassword(registerUser.getPassword());
+            user.setLogin(registerUser.getLogin());
+            user.setSurname(registerUser.getSurname());
+            user.setName(registerUser.getName());
+            this.userDatabase.addUser(user);
             return true;
         }
         return false;

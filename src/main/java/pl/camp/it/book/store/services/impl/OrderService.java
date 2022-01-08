@@ -9,6 +9,7 @@ import pl.camp.it.book.store.services.IOrderService;
 import pl.camp.it.book.store.session.SessionObject;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class OrderService implements IOrderService {
         }
         Order order = new Order();
         //order.setId(new Random().nextInt(1000000));
-        order.setOrderPositions(orderPositions);
+        order.setOrderPositions(new HashSet<>(orderPositions));
         order.setAddress(address);
         order.setUser(this.sessionObject.getUser());
         order.setStatus(Order.Status.NEW);

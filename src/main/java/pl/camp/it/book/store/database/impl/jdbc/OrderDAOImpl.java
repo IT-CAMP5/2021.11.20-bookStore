@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+
 public class OrderDAOImpl implements IOrderDAO {
 
     @Autowired
@@ -75,7 +75,7 @@ public class OrderDAOImpl implements IOrderDAO {
                 if(addressBox.isPresent()) {
                     order.setAddress(addressBox.get());
                 }
-                order.setOrderPositions(this.orderPositionDAO.getOrderPositionsByOrderId(order.getId()));
+                //order.setOrderPositions(this.orderPositionDAO.getOrderPositionsByOrderId(order.getId()));
                 result.add(order);
             }
 

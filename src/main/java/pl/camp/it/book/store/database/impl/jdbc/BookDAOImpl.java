@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+
 public class BookDAOImpl implements IBookDAO {
 
     @Autowired
