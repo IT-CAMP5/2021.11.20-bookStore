@@ -4,6 +4,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Repository;
 import pl.camp.it.book.store.database.IUserDAO;
 import pl.camp.it.book.store.model.User;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,5 +43,10 @@ public class UserDatabase implements IUserDAO {
     @Override
     public void addUser(User user) {
         this.users.add(user);
+    }
+
+    @Override
+    public void removeUser(User user) {
+        throw new NotImplementedException();
     }
 }

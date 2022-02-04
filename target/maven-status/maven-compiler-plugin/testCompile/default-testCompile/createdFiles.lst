@@ -1,0 +1,6 @@
+pl\camp\it\book\store\model\CartTest.class
+pl\camp\it\book\store\model\OrderPositionTest.class
+pl\camp\it\book\store\model\OrderTest.class
+pl\camp\it\book\store\validators\AddressValidatorTest.class
+pl\camp\it\book\store\session\SessionObjectTest.class
+pl\camp\it\book\store\validators\ValidatorTest.class

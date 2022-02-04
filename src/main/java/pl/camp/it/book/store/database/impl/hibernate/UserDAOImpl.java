@@ -49,4 +49,21 @@ public class UserDAOImpl implements IUserDAO {
             session.close();
         }
     }
+
+    @Override
+    public void removeUser(User user) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.remove(user);
+            tx.commit();
+        } catch (Exception e) {
+            if(tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+    }
 }

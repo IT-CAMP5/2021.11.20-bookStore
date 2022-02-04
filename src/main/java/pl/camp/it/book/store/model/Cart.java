@@ -19,6 +19,9 @@ public class Cart {
         for(OrderPosition orderPosition : this.positions) {
             result += orderPosition.getPositionQuantity() * orderPosition.getBook().getPrice();
         }
+        /*double result = this.positions.stream()
+                .map(p -> p.getPositionQuantity() * p.getBook().getPrice())
+                .reduce(0.0, (acc, n) -> acc + n);*/
         return Math.round(result * 100) / 100.0;
     }
 }

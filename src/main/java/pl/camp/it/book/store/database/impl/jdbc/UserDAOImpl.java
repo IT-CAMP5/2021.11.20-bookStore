@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.camp.it.book.store.database.IUserDAO;
 import pl.camp.it.book.store.model.User;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.*;
 import java.util.Optional;
@@ -56,5 +57,10 @@ public class UserDAOImpl implements IUserDAO {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    @Override
+    public void removeUser(User user) {
+        throw new NotImplementedException();
     }
 }

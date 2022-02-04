@@ -1,6 +1,7 @@
 package pl.camp.it.book.store.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "torder")
@@ -9,7 +10,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<OrderPosition> orderPositions;
+    private Set<OrderPosition> orderPositions = new HashSet<>();
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Address address;
     @ManyToOne(fetch = FetchType.EAGER)
