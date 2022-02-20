@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.camp.it.book.store.database.IBookDAO;
 import pl.camp.it.book.store.model.Book;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -107,5 +108,15 @@ public class BookDAOImpl implements IBookDAO {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    @Override
+    public void addBook(Book book) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public void deleteBook(int id) {
+        throw new NotImplementedException();
     }
 }

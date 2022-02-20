@@ -57,4 +57,9 @@ public class OrderService implements IOrderService {
     public List<Order> getOrdersForCurrentUser() {
         return this.orderDatabase.getOrdersByUserLogin(this.sessionObject.getUser().getLogin());
     }
+
+    @Override
+    public Optional<Order> getOrderById(int id) {
+        return this.orderDatabase.getOrderById(id);
+    }
 }

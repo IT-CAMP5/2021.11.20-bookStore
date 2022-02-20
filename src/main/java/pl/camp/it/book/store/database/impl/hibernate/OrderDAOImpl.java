@@ -11,6 +11,7 @@ import pl.camp.it.book.store.database.IUserDAO;
 import pl.camp.it.book.store.model.Order;
 import pl.camp.it.book.store.model.User;
 
+import javax.persistence.NoResultException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -54,5 +55,20 @@ public class OrderDAOImpl implements IOrderDAO {
         List<Order> orders = query.getResultList();
         session.close();
         return orders;
+    }
+
+    @Override
+    public Optional<Order> getOrderById(int id) {
+        Session session = this.sessionFactory.openSession();
+        Query<Order> query = session.createQuery("FROM pl.camp.it.book.store.model.Order WHERE id = :id");
+        query.setParameter("id", id);
+        try {
+            Order order = query.getSingleResult();
+            session.close();
+            return Optional.of(order);
+        } catch (NoResultException e) {
+            session.close();
+            return Optional.empty();
+        }
     }
 }

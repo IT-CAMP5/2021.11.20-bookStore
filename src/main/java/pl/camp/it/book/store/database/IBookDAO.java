@@ -10,4 +10,6 @@ public interface IBookDAO {
     Optional<Book> getBookByIsbn(String isbn);
     Optional<Book> getBookById(int bookId);
     void updateBook(Book book);
+    void addBook(Book book);
+    void deleteBook(int id);
 }

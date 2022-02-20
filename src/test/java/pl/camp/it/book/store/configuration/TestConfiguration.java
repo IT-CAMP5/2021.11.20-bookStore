@@ -1,5 +1,6 @@
 package pl.camp.it.book.store.configuration;
 
+import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,7 @@ import pl.camp.it.book.store.databse.UserDAOStub;
         "pl.camp.it.book.store.session"
 })
 public class TestConfiguration {
-    @Bean
+    /*@Bean
     public IBookDAO bookDAO() {
         return new BookDAOStub();
     }
@@ -30,5 +31,20 @@ public class TestConfiguration {
     @Bean
     public IOrderDAO orderDAO() {
         return new OrderDAOStub();
+    }*/
+
+    /*@Bean
+    public IBookDAO bookDAO() {
+        return Mockito.mock(IBookDAO.class);
     }
+
+    @Bean
+    public IUserDAO userDAO() {
+        return Mockito.mock(IUserDAO.class);
+    }
+
+    @Bean
+    public IOrderDAO orderDAO() {
+        return Mockito.mock(IOrderDAO.class);
+    }*/
 }

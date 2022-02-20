@@ -74,4 +74,40 @@ public class BookDAOImpl implements IBookDAO {
             session.close();
         }
     }
+
+    @Override
+    public void addBook(Book book) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.save(book);
+            tx.commit();
+        } catch (Exception e) {
+            if(tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public void deleteBook(int id) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Query query = session.createQuery("DELETE FROM pl.camp.it.book.store.model.Book WHERE id = :id");
+            query.setParameter("id", id);
+            query.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            if(tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+    }
 }

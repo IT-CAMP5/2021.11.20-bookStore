@@ -49,4 +49,9 @@ public class UserDatabase implements IUserDAO {
     public void removeUser(User user) {
         throw new NotImplementedException();
     }
+
+    @Override
+    public Optional<User> getUserById(int id) {
+        throw new NotImplementedException();
+    }
 }

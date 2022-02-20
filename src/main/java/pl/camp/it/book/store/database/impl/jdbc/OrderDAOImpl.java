@@ -10,6 +10,7 @@ import pl.camp.it.book.store.model.Address;
 import pl.camp.it.book.store.model.Order;
 import pl.camp.it.book.store.model.OrderPosition;
 import pl.camp.it.book.store.model.User;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -83,5 +84,10 @@ public class OrderDAOImpl implements IOrderDAO {
             throwables.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public Optional<Order> getOrderById(int id) {
+        throw new NotImplementedException();
     }
 }

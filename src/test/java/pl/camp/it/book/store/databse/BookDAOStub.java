@@ -41,6 +41,16 @@ public class BookDAOStub implements IBookDAO {
         this.updateBookFlag = true;
     }
 
+    @Override
+    public void addBook(Book book) {
+
+    }
+
+    @Override
+    public void deleteBook(int id) {
+
+    }
+
     public boolean isUpdateBookFlag() {
         return updateBookFlag;
     }

@@ -1,6 +1,13 @@
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\services\impl\OrderServiceTest.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\databse\OrderDAOStub.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\model\OrderTest.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\services\impl\AuthenticationServiceTest.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\validators\AddressValidatorTest.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\configuration\TestConfiguration.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\model\CartTest.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\databse\UserDAOStub.java
 E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\model\OrderPositionTest.java
 E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\session\SessionObjectTest.java
-E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\model\OrderTest.java
-E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\validators\AddressValidatorTest.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\services\impl\CartServiceTest.java
+E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\databse\BookDAOStub.java
 E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\validators\ValidatorTest.java
-E:\IT-CAMP5\2021.11.20-bookStore\src\test\java\pl\camp\it\book\store\model\CartTest.java

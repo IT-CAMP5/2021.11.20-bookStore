@@ -66,4 +66,19 @@ public class UserDAOImpl implements IUserDAO {
             session.close();
         }
     }
+
+    @Override
+    public Optional<User> getUserById(int id) {
+        Session session = this.sessionFactory.openSession();
+        Query<User> query = session.createQuery("FROM pl.camp.it.book.store.model.User WHERE id = :id");
+        query.setParameter("id", id);
+        try {
+            User user = query.getSingleResult();
+            session.close();
+            return Optional.of(user);
+        } catch (NoResultException e) {
+            session.close();
+            return Optional.empty();
+        }
+    }
 }

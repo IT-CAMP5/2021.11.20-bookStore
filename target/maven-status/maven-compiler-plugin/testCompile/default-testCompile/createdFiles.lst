@@ -1,6 +1,13 @@
+pl\camp\it\book\store\validators\AddressValidatorTest.class
+pl\camp\it\book\store\model\OrderTest.class
+pl\camp\it\book\store\configuration\TestConfiguration.class
+pl\camp\it\book\store\databse\OrderDAOStub.class
+pl\camp\it\book\store\services\impl\CartServiceTest.class
+pl\camp\it\book\store\validators\ValidatorTest.class
+pl\camp\it\book\store\databse\BookDAOStub.class
+pl\camp\it\book\store\databse\UserDAOStub.class
+pl\camp\it\book\store\services\impl\OrderServiceTest.class
 pl\camp\it\book\store\model\CartTest.class
 pl\camp\it\book\store\model\OrderPositionTest.class
-pl\camp\it\book\store\model\OrderTest.class
-pl\camp\it\book\store\validators\AddressValidatorTest.class
+pl\camp\it\book\store\services\impl\AuthenticationServiceTest.class
 pl\camp\it\book\store\session\SessionObjectTest.class
-pl\camp\it\book\store\validators\ValidatorTest.class

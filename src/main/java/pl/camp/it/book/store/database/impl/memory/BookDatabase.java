@@ -73,4 +73,14 @@ public class BookDatabase implements IBookDAO {
     public void updateBook(Book book) {
         throw new NotImplementedException();
     }
+
+    @Override
+    public void addBook(Book book) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public void deleteBook(int id) {
+        throw new NotImplementedException();
+    }
 }

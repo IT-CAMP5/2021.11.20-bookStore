@@ -20,4 +20,9 @@ public class UserDAOStub implements IUserDAO {
     public void removeUser(User user) {
 
     }
+
+    @Override
+    public Optional<User> getUserById(int id) {
+        return Optional.empty();
+    }
 }

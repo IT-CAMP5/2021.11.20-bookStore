@@ -6,6 +6,7 @@ import pl.camp.it.book.store.database.IBookDAO;
 import pl.camp.it.book.store.database.IOrderPositionDAO;
 import pl.camp.it.book.store.model.Book;
 import pl.camp.it.book.store.model.OrderPosition;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -63,5 +64,10 @@ public class OrderPositionDAOImpl implements IOrderPositionDAO {
             throwables.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public Optional<OrderPosition> getOrderPositionById(int id) {
+        throw new NotImplementedException();
     }
 }
