@@ -1,15 +1,20 @@
 package pl.camp.it.book.store.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@ApiModel(description = "Data about book in bookstore")
 @Entity(name = "tbook")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ApiModelProperty("book title")
     private String title;
     private String author;
     private double price;

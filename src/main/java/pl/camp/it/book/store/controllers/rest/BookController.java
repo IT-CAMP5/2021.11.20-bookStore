@@ -1,5 +1,7 @@
 package pl.camp.it.book.store.controllers.rest;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +20,9 @@ public class BookController {
     @Autowired
     IBookService bookService;
 
+    @ApiOperation(value = "Find book by ID", notes = "Returns book according to given id")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Book> getBookById(@PathVariable int id) {
+    public ResponseEntity<Book> getBookById(@ApiParam(value = "Unique Id of Book", example = "33") @PathVariable int id) {
         Optional<Book> bookBox = this.bookService.getBookById(id);
         if(bookBox.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(bookBox.get());
@@ -40,7 +43,6 @@ public class BookController {
             Optional<Book> bookBox = this.bookService.getBookByIsbn(isbn);
             bookBox.ifPresent(book -> getAllBooksResponse.getBooks().add(book));
         }
-
         return getAllBooksResponse;
     }
 
